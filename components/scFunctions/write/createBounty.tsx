@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 import { usePrepareContractWrite, useContractWrite, useNetwork,useWaitForTransaction } from 'wagmi'
-import Bountyscape from '../../../utils/Bountyscape.json'
+import StackRewards from '../../../utils/StackRewards.json'
 
 export function CreateBounty({ipfsContent, val, htmlFor} : {ipfsContent: string, val: string, htmlFor: string}) {
 
@@ -15,7 +15,7 @@ export function CreateBounty({ipfsContent, val, htmlFor} : {ipfsContent: string,
 
   const { config, error: prepareError, isError: isPrepareError, } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: 'createBounty',
     args: [ipfsId],
     overrides: {

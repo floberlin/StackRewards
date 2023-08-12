@@ -4,7 +4,7 @@ import {
   useNetwork,
   useWaitForTransaction,
 } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function RevokeRoleContractor() {
   const { chain } = useNetwork();
@@ -21,13 +21,13 @@ export function RevokeRoleContractor() {
     isError: isPrepareError,
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "revokeRoleContractor",
   });
 
   const { isError: isErrorContractor } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "grantRoleContractor",
   });
 

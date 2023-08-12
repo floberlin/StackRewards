@@ -4,7 +4,7 @@ import {
   useNetwork,
   useWaitForTransaction,
 } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function CompleteBounty({ ipfsId }: { ipfsId: any }) {
   const { chain } = useNetwork();
@@ -21,7 +21,7 @@ export function CompleteBounty({ ipfsId }: { ipfsId: any }) {
     isError: isPrepareError,
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "completeBounty",
     args: [ipfsId],
   });

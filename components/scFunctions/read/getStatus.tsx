@@ -1,5 +1,5 @@
 import { useContractRead, useNetwork } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function GetStatus(ipfsId: string | string[] | undefined) {
   const { chain } = useNetwork();
@@ -12,7 +12,7 @@ export function GetStatus(ipfsId: string | string[] | undefined) {
 
   const { data, isLoading, isSuccess } = useContractRead({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "getStatus",
     args: [ipfsId],
   });

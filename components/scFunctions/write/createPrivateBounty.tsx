@@ -1,5 +1,5 @@
 import { usePrepareContractWrite, useContractWrite, useNetwork } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function CreatePrivateBounty() {
   const { chain } = useNetwork();
@@ -12,7 +12,7 @@ export function CreatePrivateBounty() {
 
   const { config } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "createPrivateBounty",
   });
 

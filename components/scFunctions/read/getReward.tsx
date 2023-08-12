@@ -1,6 +1,6 @@
 import { utils } from "ethers";
 import { useContractRead, useNetwork } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function GetReward({
   tokenId,
@@ -21,7 +21,7 @@ export function GetReward({
     isSuccess: isSuccessTokenId,
   } = useContractRead({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "tokenIDtoReward",
     args: [tokenId],
   });

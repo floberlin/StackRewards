@@ -6,7 +6,7 @@ import {
   useContractRead,
   useAccount,
 } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 import BountyscapeToken from "../../../utils/BountyscapeToken.json";
 
 export function ClaimFunds({ ipfsId }: { ipfsId: any }) {
@@ -24,7 +24,7 @@ export function ClaimFunds({ ipfsId }: { ipfsId: any }) {
     isError: isPrepareError,
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "claimFunds",
     args: [ipfsId],
   });

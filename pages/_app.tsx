@@ -114,8 +114,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div data-theme="bumblebee">
       <Head>
-        <title>Bountyscape</title>
-        <meta name="description" content="Bountyscape" />
+        <title>StackRewards</title>
+        <meta name="description" content="StackRewards" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

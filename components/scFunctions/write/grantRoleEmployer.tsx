@@ -6,7 +6,7 @@ import {
   useWaitForTransaction,
   useNetwork,
 } from "wagmi";
-import Bountyscape from "../../../utils/Bountyscape.json";
+import StackRewards from "../../../utils/StackRewards.json";
 
 export function GrantRoleEmployer() {
   const { chain } = useNetwork();
@@ -23,13 +23,13 @@ export function GrantRoleEmployer() {
     isError: isPrepareError,
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "grantRoleEmployer",
   });
 
   const { isError: isErrorContractor } = usePrepareContractWrite({
     addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    contractInterface: StackRewards.abi,
     functionName: "grantRoleContractor",
   });
 
