@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import { usePrepareContractWrite, useNetwork, useAccount } from "wagmi";
-import Bountyscape from "../utils/Bountyscape.json";
+import StackRewards from '../utils/StackRewards.json'
 
 const Navbar = () => {
   const { chain } = useNetwork();
@@ -16,14 +16,14 @@ const Navbar = () => {
       : "0x548325D23dD7FdcD3aC34daCfb51Ad10CeFd13fd";
 
   const { isError: isErrorEmployer } = usePrepareContractWrite({
-    addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    address: contractAddr,
+    abi: StackRewards.abi,
     functionName: "grantRoleEmployer",
   });
 
   const { isError: isErrorContractor } = usePrepareContractWrite({
-    addressOrName: contractAddr,
-    contractInterface: Bountyscape.abi,
+    address: contractAddr,
+    abi: StackRewards.abi,
     functionName: "grantRoleContractor",
   });
 

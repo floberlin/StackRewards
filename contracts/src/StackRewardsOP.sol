@@ -16,20 +16,14 @@ contract StackRewards is AccessControl, ReentrancyGuard {
     mapping(uint256 => uint256) public taskIDtoReward; // taskID to reward
     mapping(uint256 => address) public taskIDtoEmployee; // array of addresses
     mapping(uint256 => bool) public claimedReward; // if the employee has claimed the reward
-    mapping(string => bool) public claimedTask; // if the employee has claimed the task
+    mapping(uint256 => bool) public claimedTask; // if the employee has claimed the task
     mapping(uint256 => bool) public approvedTask; // if the employer has approved the task
 
-    constructor(address addr1, address addr2) {
+     constructor() {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        treasury = addr1;
-        bstoken = addr2;
     }
 
-    function supportsInterface(
-        bytes4 interfaceId
-    ) public view virtual override(ERC1155, AccessControl) returns (bool) {
-        return super.supportsInterface(interfaceId);
-    }
+  
 
     /**
      *
@@ -75,7 +69,7 @@ contract StackRewards is AccessControl, ReentrancyGuard {
      */
 
     // main functions
-    function createTask(string memory rewardAmount) public {
+    function createTask(uint256 rewardAmount) public {
         require(
             hasRole(EMPLOYER_ROLE, msg.sender),
             "Caller is not an employer"
@@ -84,22 +78,16 @@ contract StackRewards is AccessControl, ReentrancyGuard {
         taskID++;
     }
 
-    function assignTask(string memory _taskID) public {
+   function assignTask(uint256 _taskID) public {
         require(
             hasRole(EMPLOYEE_ROLE, msg.sender),
             "Caller is not an employee"
         );
-        require(
-            !claimedTask[append(_taskID, addressToString(msg.sender), "")],
-            "Task has already been claimed"
-        );
-        claimedTask[append(_taskID, addressToString(msg.sender), "")] = true;
         taskIDtoEmployee[_taskID] = (msg.sender);
-        
     }
 
     function approveCompletedTask(
-        string memory _taskID,
+        uint256 _taskID
     ) public {
         require(
             hasRole(EMPLOYEE_ROLE, msg.sender),
@@ -113,7 +101,7 @@ contract StackRewards is AccessControl, ReentrancyGuard {
         approvedTask[_taskID] = true;
     }
 
-    function claimReward(string memory _taskID, address _tokenAddress) public {
+    function claimReward(uint256 _taskID, address _tokenAddress) public {
         require(
             !claimedReward[_taskID],
             "This task rewards have already been claimed"
@@ -135,32 +123,13 @@ contract StackRewards is AccessControl, ReentrancyGuard {
 
     }
 
-    // Get functions
-    function getTokenID(string memory ipfsID) public view returns (uint256) {
-        uint256 result;
-        for (uint256 j = 0; j <= taskID; j++) {
-            if (compareStrings(taskIDtoIPFS[j], ipfsID)) {
-                result = j;
-            }
-        }
-        return result;
-    }
 
     function getClaimer(
-        string memory _taskID
-    ) public view returns (address[] memory) {
+        uint256 _taskID
+    ) public view returns (address) {
         return taskIDtoEmployee[_taskID];
     }
 
-    function getTasks() public view returns (string[] memory) {
-        string[] memory result = new string[](taskID);
-        for (uint256 j = 0; j <= taskID; j++) {
-            if (this.balanceOf(treasury, j) > 0) {
-                result[j] = taskIDtoIPFS[j];
-            }
-        }
-        return result;
-    }
 
     // Helper functions
     function compareStrings(
@@ -189,10 +158,10 @@ contract StackRewards is AccessControl, ReentrancyGuard {
         return Strings.toString(i);
     }
 
-    function append(
-        string memory a,
-        string memory b,
-        string memory c
+     function append(
+        uint256 a,
+        uint256 b,
+        uint256 c
     ) internal pure returns (string memory) {
         return string(abi.encodePacked(a, b, c));
     }

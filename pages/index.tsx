@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useContractRead, useNetwork, usePrepareContractWrite } from 'wagmi'
-
+import StackRewards from '../utils/StackRewards.json'
   
 const Home: NextPage = () => {
  
@@ -14,19 +14,19 @@ const Home: NextPage = () => {
  
    const { data:bounties, isSuccess, isLoading } = useContractRead({
      address: contractAddr,
-     abi: Bountyscape.abi,
+     abi: StackRewards.abi,
      functionName: 'getBounties',
    })
  
    const { isError: isErrorContractor, } = usePrepareContractWrite({
      address: contractAddr,
-     abi: Bountyscape.abi,
+     abi: StackRewards.abi,
      functionName: 'grantRoleContractor',
    })
 
    const { isError: isErrorEmployer } = usePrepareContractWrite({
     address: contractAddr,
-    abi: Bountyscape.abi,
+    abi: StackRewards.abi,
     functionName: "grantRoleEmployer",
    });
  
