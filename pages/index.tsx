@@ -12,7 +12,7 @@ const Home: NextPage = () => {
        ? "0x7bE0571a42bF0e4429d1fbcECA791575CFb73b4E"
        : "0x548325D23dD7FdcD3aC34daCfb51Ad10CeFd13fd";
  
-   const { data:bounties, isSuccess, isLoading } = useContractRead({
+   const { data:tasks, isSuccess, isLoading } = useContractRead({
      address: contractAddr,
      abi: StackRewards.abi,
      functionName: 'getBounties',
@@ -38,8 +38,8 @@ const Home: NextPage = () => {
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">To Do</h2>
-            <p>Claim bounties and reward</p>
-            <Link href={"/bounties"}>
+            <p>Claim tasks and reward</p>
+            <Link href={"/tasks"}>
               <div>
                 <button className="btn btn-primary mt-2">
                   Create Task
@@ -51,8 +51,8 @@ const Home: NextPage = () => {
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">In Progress</h2>
-            <p>Claim bounties and reward</p>
-            <Link href={"/bounties"}>
+            <p>Claim tasks and reward</p>
+            <Link href={"/tasks"}>
               <div>
                 <button className="btn btn-primary mt-2">
                   Move to Review
@@ -64,8 +64,8 @@ const Home: NextPage = () => {
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">Review</h2>
-            <p>Claim bounties and reward</p>
-            <Link href={"/bounties"}>
+            <p>Claim tasks and reward</p>
+            <Link href={"/tasks"}>
               <div>
                 <button className="btn btn-primary mt-2">
                 Review Task
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">Done</h2>
-            <p>Claim bounties and reward</p>
+            <p>Claim tasks and reward</p>
             
           </div>
         </div>

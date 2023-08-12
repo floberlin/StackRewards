@@ -42,7 +42,7 @@ export function GrantRoleContractor() {
   useEffect(() => {
     if (isSuccess) {
       setTimeout(() => {
-        Router.push("/bounties");
+        Router.push("/tasks");
       }, 1000);
     }
   }, [isSuccess]);
