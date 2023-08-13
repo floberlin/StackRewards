@@ -74,6 +74,7 @@ const connectors = connectorsForWallets([
           projectIds: [
             "65d107b6-4c94-4c8d-b21d-395af484803d",
             "ccd0a72c-2755-4f4b-ace9-e4a9955076b1",
+            "65d107b6-4c94-4c8d-b21d-395af484803d",
           ],
         },
       }),
@@ -83,6 +84,7 @@ const connectors = connectorsForWallets([
           projectIds: [
             "65d107b6-4c94-4c8d-b21d-395af484803d",
             "ccd0a72c-2755-4f4b-ace9-e4a9955076b1",
+            "65d107b6-4c94-4c8d-b21d-395af484803d",
           ],
         },
       }),
@@ -92,6 +94,7 @@ const connectors = connectorsForWallets([
           projectIds: [
             "65d107b6-4c94-4c8d-b21d-395af484803d",
             "ccd0a72c-2755-4f4b-ace9-e4a9955076b1",
+            "65d107b6-4c94-4c8d-b21d-395af484803d",
           ],
         },
       }),
