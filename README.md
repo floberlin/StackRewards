@@ -23,9 +23,11 @@ Join us in making Agile not just a working model, but a rewarding experience!
 Optimism Goerli: 
     - Main Contract:  0x74Aad706E6A8D7E2a2273a848258F50d74EB50C0
     - Token Contract: 0x48D64975cDe76b955967AAfF0EFdAbf8ca22a1a4 
+
 Zora Goerli:
     - Main Contract: 0x74Aad706E6A8D7E2a2273a848258F50d74EB50C0
     - Token Contract: 0x48D64975cDe76b955967AAfF0EFdAbf8ca22a1a4
+    
 Base Goerli:
     - Main Contract: 0x74Aad706E6A8D7E2a2273a848258F50d74EB50C0
     - Token Contract: 0x48D64975cDe76b955967AAfF0EFdAbf8ca22a1a4
