@@ -27,10 +27,10 @@ export function GrantRoleEmployer() {
     functionName: "grantRoleEmployer",
   });
 
-  const { isError: isErrorContractor } = usePrepareContractWrite({
+  const { isError: isErrorEmployee } = usePrepareContractWrite({
     addressOrName: contractAddr,
     contractInterface: StackRewards.abi,
-    functionName: "grantRoleContractor",
+    functionName: "grantRoleEmployee",
   });
 
   const { data, error, isError, write } = useContractWrite(config);

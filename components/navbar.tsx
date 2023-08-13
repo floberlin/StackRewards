@@ -21,10 +21,10 @@ const Navbar = () => {
     functionName: "grantRoleEmployer",
   });
 
-  const { isError: isErrorContractor } = usePrepareContractWrite({
+  const { isError: isErrorEmployee } = usePrepareContractWrite({
     address: contractAddr,
     abi: StackRewards.abi,
-    functionName: "grantRoleContractor",
+    functionName: "grantRoleEmployee",
   });
 
   const [showChild, setShowChild] = useState(false);

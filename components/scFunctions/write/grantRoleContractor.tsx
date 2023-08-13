@@ -8,7 +8,7 @@ import {
 } from "wagmi";
 import StackRewards from "../../../utils/StackRewards.json";
 
-export function GrantRoleContractor() {
+export function GrantRoleEmployee() {
   const { chain } = useNetwork();
   const contractAddr =
     chain?.name === "Goerli"
@@ -24,7 +24,7 @@ export function GrantRoleContractor() {
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
     contractInterface: StackRewards.abi,
-    functionName: "grantRoleContractor",
+    functionName: "grantRoleEmployee",
   });
 
   const { isError: isErrorEmployer } = usePrepareContractWrite({
@@ -54,7 +54,7 @@ export function GrantRoleContractor() {
         disabled={!write || isLoading || isErrorEmployer}
         onClick={() => write?.()}
       >
-        {isLoading ? "Setting Status..." : "Become Contractor"}
+        {isLoading ? "Setting Status..." : "Become Employee"}
       </button>
       {isSuccess && (
         <>
@@ -62,7 +62,7 @@ export function GrantRoleContractor() {
             <div className="alert alert-success">
               <div>
                 <div>
-                  You are now an Contractor
+                  You are now an Employee
                   <div>
                     <a href={`https://evm.evmos.dev/tx/${data?.hash}`}>
                       Evmos Explorer

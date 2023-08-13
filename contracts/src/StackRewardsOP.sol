@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity =0.8.20;
+pragma solidity =0.8.19;
 
 import "openzeppelin-contracts/contracts/access/AccessControl.sol";
 import "openzeppelin-contracts/contracts/security/ReentrancyGuard.sol";
@@ -46,7 +46,7 @@ contract StackRewards is AccessControl, ReentrancyGuard {
         revokeRole(EMPLOYER_ROLE, user);
     }
 
-    function grantRoleContractor() public {
+    function grantRoleEmployee() public {
         require(
             !hasRole(EMPLOYER_ROLE, msg.sender),
             "Caller is already an employer"
@@ -54,7 +54,7 @@ contract StackRewards is AccessControl, ReentrancyGuard {
         _setupRole(EMPLOYEE_ROLE, msg.sender);
     }
 
-    function revokeRoleContractor(address user) public {
+    function revokeRoleEmployee(address user) public {
         require(
             hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
             "Caller is not an admin"

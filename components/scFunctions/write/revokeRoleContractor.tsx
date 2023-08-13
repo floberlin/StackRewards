@@ -6,7 +6,7 @@ import {
 } from "wagmi";
 import StackRewards from "../../../utils/StackRewards.json";
 
-export function RevokeRoleContractor() {
+export function RevokeRoleEmployee() {
   const { chain } = useNetwork();
   const contractAddr =
     chain?.name === "Goerli"
@@ -22,13 +22,13 @@ export function RevokeRoleContractor() {
   } = usePrepareContractWrite({
     addressOrName: contractAddr,
     contractInterface: StackRewards.abi,
-    functionName: "revokeRoleContractor",
+    functionName: "revokeRoleEmployee",
   });
 
-  const { isError: isErrorContractor } = usePrepareContractWrite({
+  const { isError: isErrorEmployee } = usePrepareContractWrite({
     addressOrName: contractAddr,
     contractInterface: StackRewards.abi,
-    functionName: "grantRoleContractor",
+    functionName: "grantRoleEmployee",
   });
 
   const { data, error, isError, write } = useContractWrite(config);
@@ -41,10 +41,10 @@ export function RevokeRoleContractor() {
     <div>
       <button
         className="btn btn-primary my-8 "
-        disabled={!write || isLoading || isErrorContractor}
+        disabled={!write || isLoading || isErrorEmployee}
         onClick={() => write?.()}
       >
-        {isLoading ? "Revoking Status..." : "Revoke Contractor Status"}
+        {isLoading ? "Revoking Status..." : "Revoke Employee Status"}
       </button>
       {isSuccess && (
         <>
